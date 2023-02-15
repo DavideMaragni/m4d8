@@ -18,7 +18,80 @@ const getProducts = async(url)=>{
         }
 }
 
-getProducts().then(response => console.log(responde))
+//CALL THE API
+const getRequest = async (url) => {
+    console.log('func.async.getRequest -> start');
+    try {
+        const data = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2RkM2Y2Y2M0MWI1NDAwMTVlNjAzODciLCJpYXQiOjE2NzU0NDUzMTEsImV4cCI6MTY3NjY1NDkxMX0.Rj0vUWYCOyU-vS9NmkunVEZy68M_ZxzW9hG2Xb4hHCo",
+            }
+        });
+
+        return await data.json();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+//POST FUNCTION
+const postRequest = async (formData, url) => {
+    try{
+        const data = await fetch(url, {
+            method: 'POST', 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2RkM2Y2Y2M0MWI1NDAwMTVlNjAzODciLCJpYXQiOjE2NzU0NDUzMTEsImV4cCI6MTY3NjY1NDkxMX0.Rj0vUWYCOyU-vS9NmkunVEZy68M_ZxzW9hG2Xb4hHCo",
+            }, 
+            body: JSON.stringify(formData),
+        })
+
+        return await data.json();
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+//PATCH FUNCTION
+const putRequest = async (formData, prodID, url) => {
+    try{
+        const data = await fetch(`${url}${prodID}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2RkM2Y2Y2M0MWI1NDAwMTVlNjAzODciLCJpYXQiOjE2NzU0NDUzMTEsImV4cCI6MTY3NjY1NDkxMX0.Rj0vUWYCOyU-vS9NmkunVEZy68M_ZxzW9hG2Xb4hHCo",
+            }, 
+            body: JSON.stringify(formData),
+        })
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+//DELETE FUNCTION
+const deleteRequest = async (prodID, url) => {
+    try{
+        const data = await fetch(`${url}${prodID}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2RkM2Y2Y2M0MWI1NDAwMTVlNjAzODciLCJpYXQiOjE2NzU0NDUzMTEsImV4cCI6MTY3NjY1NDkxMX0.Rj0vUWYCOyU-vS9NmkunVEZy68M_ZxzW9hG2Xb4hHCo",
+            }, 
+        })
+    }
+    catch(error){
+        console.log(error)
+    }
+}
 
 /* 
 .then(response => console.log(responde))
