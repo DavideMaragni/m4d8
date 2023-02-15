@@ -1,7 +1,7 @@
 
 /*non funziona la call*/
 
-const getProducts = async(url)=>{
+/*const getProducts = async(url)=>{
 
     try{
         const data = await fetch("https://striveschool-api.herokuapp.com/api/product/", {
@@ -16,7 +16,7 @@ const getProducts = async(url)=>{
         catch(error) {
             console.log(error);
         }
-}
+}*/
 
 //CALL THE API
 const getRequest = async (url) => {
